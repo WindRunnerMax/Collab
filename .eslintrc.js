@@ -1,4 +1,7 @@
 module.exports = {
+  parserOptions: {
+    sourceType: "module",
+  },
   extends: ["eslint:recommended", "plugin:prettier/recommended"],
   overrides: [
     {
