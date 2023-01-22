@@ -12,21 +12,30 @@ export default async () => {
     output: {
       dir: "./build",
       format: "iife",
+      globals: {
+        "react": "React",
+        "react-dom": "ReactDOM",
+      },
     },
     plugins: [
       resolve(),
       commonjs({ include: "node_modules/**" }),
       babel({
+        extensions: ["js", "jsx", "ts", "tsx"],
         exclude: "node_modules/**",
-        presets: [["@babel/preset-env", { modules: false, targets: { chrome: 70 } }]],
         babelHelpers: "bundled",
+        presets: [
+          ["@babel/preset-react"],
+          ["@babel/preset-env", { modules: false, targets: { chrome: 70 } }],
+        ],
       }),
-      postcss({ minimize: true, extensions: [".css", ".scss"] }),
       ts({
         tsconfig: path.resolve(__dirname, "./tsconfig.json"),
         extensions: [".ts", ".tsx"],
       }),
+      postcss({ minimize: true, extensions: [".css", ".scss"] }),
       terser(),
     ],
+    external: ["react", "react-dom"],
   };
 };
