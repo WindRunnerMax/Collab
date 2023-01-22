@@ -1,8 +1,6 @@
 # Collab
 
-
-
-## 命令
+## Workspace
 
 ```bash
 # workspace
@@ -12,6 +10,6 @@
 # --filter crdt-counter
 
 pnpm i 
-pnpm add sharedb --filter ot-counter
-pnpm remove sharedb --filter ot-counter
+pnpm add sharedb --filter workspace
+pnpm remove sharedb --filter workspace
 ```
