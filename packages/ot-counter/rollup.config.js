@@ -1,10 +1,8 @@
-import ts from "@rollup/plugin-typescript";
-import babel from "@rollup/plugin-babel";
 import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import path from "path";
-import terser from "@rollup/plugin-terser";
 import postcss from "rollup-plugin-postcss";
+import esbuild from "rollup-plugin-esbuild";
 
 process.env.NODE_ENV === "production";
 const banner = `var process = {
@@ -16,11 +14,7 @@ export default async () => {
     input: "src/index.tsx",
     output: {
       dir: "./build",
-      format: "iife",
-      globals: {
-        "react": "React",
-        "react-dom": "ReactDOM",
-      },
+      format: "es",
       banner,
     },
     plugins: [
@@ -29,19 +23,13 @@ export default async () => {
         include: /node_modules/, // `monorepo regexp`
       }),
       postcss({ minimize: true, extensions: [".css", ".scss"] }),
-      babel({
-        exclude: /node_modules/,
-        babelHelpers: "bundled",
-        presets: [
-          ["@babel/preset-react"],
-          ["@babel/preset-env", { modules: false, targets: { chrome: 70 } }],
-        ],
+      esbuild({
+        exclude: [/node_modules/],
+        target: "esnext",
+        minify: true,
+        charset: "utf8",
+        tsconfig: path.resolve(__dirname, "tsconfig.json"),
       }),
-      ts({
-        tsconfig: path.resolve(__dirname, "./tsconfig.json"),
-      }),
-      terser(),
     ],
-    external: ["react", "react-dom"],
   };
 };
