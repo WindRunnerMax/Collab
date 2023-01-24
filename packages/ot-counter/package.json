@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "",
+    "dev": "concurrently 'npm run fe' 'npm run server'",
+    "fe": "mkdir -p build && cp -R public/ ./build/ && rollup -wc",
     "build": "mkdir -p build && cp -R public/ ./build/ && rollup -c",
     "server": "node server/index.js"
   },
@@ -12,14 +13,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@collab/config": "workspace:*",
     "@teamwork/websocket-json-stream": "^2.0.0",
     "express": "^4.18.2",
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
     "reconnecting-websocket": "^4.4.0",
     "sharedb": "^3.2.1",
-    "ws": "^8.12.0",
-    "@collab/config": "workspace:*"
+    "ws": "^8.12.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.12",
@@ -30,6 +31,7 @@
     "@rollup/plugin-node-resolve": "^13.3.0",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
+    "concurrently": "^7.6.0",
     "esbuild": "^0.17.4",
     "rollup": "^2.75.7",
     "rollup-plugin-esbuild": "^5.0.0",
