@@ -57,7 +57,7 @@ export default async () => {
           },
         ],
       }),
-      resolve({ browser: true }),
+      resolve({ browser: true, preferBuiltins: false }),
       commonjs({
         include: /node_modules/, // `monorepo regexp`
       }),

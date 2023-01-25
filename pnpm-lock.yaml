@@ -52,6 +52,7 @@ importers:
       '@types/sharedb': ^3.2.1
       concurrently: ^7.6.0
       esbuild: ^0.17.4
+      events: ^3.3.0
       express: ^4.18.2
       react: ^17.0.0
       react-dom: ^17.0.0
@@ -66,6 +67,7 @@ importers:
     dependencies:
       '@collab/config': link:../config
       '@teamwork/websocket-json-stream': registry.npmmirror.com/@teamwork/websocket-json-stream/2.0.0
+      events: registry.npmmirror.com/events/3.3.0
       express: registry.npmmirror.com/express/4.18.2
       react: registry.npmmirror.com/react/17.0.2
       react-dom: registry.npmmirror.com/react-dom/17.0.2_react@17.0.2
@@ -3691,6 +3693,13 @@ packages:
     name: eventemitter3
     version: 4.0.7
     dev: true
+
+  registry.npmmirror.com/events/3.3.0:
+    resolution: {integrity: sha512-mQw+2fkQbALzQ7V0MY0IqdnXNOeTtP4r0lN9z7AAawCXgqea7bDii20AYrIBrFd/Hx0M2Ocz6S111CaFkUcb0Q==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/events/-/events-3.3.0.tgz}
+    name: events
+    version: 3.3.0
+    engines: {node: '>=0.8.x'}
+    dev: false
 
   registry.npmmirror.com/express/4.18.2:
     resolution: {integrity: sha512-5/PsL6iGPdfQ/lKM1UuielYgv3BUoJfz1aUwU9vHZ+J7gyvwdQXFEBIEIaxeGf0GIcreATNyBExtalisDbuMqQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/express/-/express-4.18.2.tgz}
