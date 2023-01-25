@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useLayoutEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import Connection from "./client";
 
 const connection = new Connection();
