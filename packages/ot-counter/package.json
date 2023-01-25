@@ -31,6 +31,7 @@
     "@rollup/plugin-node-resolve": "^13.3.0",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
+    "@types/sharedb": "^3.2.1",
     "concurrently": "^7.6.0",
     "esbuild": "^0.17.4",
     "rollup": "^2.75.7",

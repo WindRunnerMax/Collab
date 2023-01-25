@@ -49,6 +49,7 @@ importers:
       '@teamwork/websocket-json-stream': ^2.0.0
       '@types/react': ^17.0.0
       '@types/react-dom': ^17.0.0
+      '@types/sharedb': ^3.2.1
       concurrently: ^7.6.0
       esbuild: ^0.17.4
       express: ^4.18.2
@@ -80,6 +81,7 @@ importers:
       '@rollup/plugin-node-resolve': registry.npmmirror.com/@rollup/plugin-node-resolve/13.3.0_rollup@2.79.1
       '@types/react': registry.npmmirror.com/@types/react/17.0.53
       '@types/react-dom': registry.npmmirror.com/@types/react-dom/17.0.18
+      '@types/sharedb': registry.npmmirror.com/@types/sharedb/3.2.1
       concurrently: registry.npmmirror.com/concurrently/7.6.0
       esbuild: registry.npmmirror.com/esbuild/0.17.4
       rollup: registry.npmmirror.com/rollup/2.79.1
@@ -2151,6 +2153,12 @@ packages:
     resolution: {integrity: sha512-21cFJr9z3g5dW8B0CVI9g2O9beqaThGQ6ZFBqHfwhzLDKUxaqTIy3vnfah/UPkfOiF2pLq+tGz+W8RyCskuslw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/semver/-/semver-7.3.13.tgz}
     name: '@types/semver'
     version: 7.3.13
+    dev: true
+
+  registry.npmmirror.com/@types/sharedb/3.2.1:
+    resolution: {integrity: sha512-QZNx3s7k6L+oxAo6wBhhhbd9EsXQOh4hsUGUT8CUp3Vec4ozg3/eEcTPiIN8AVoSmKojF6JYqb/roWhXjb5SYw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/sharedb/-/sharedb-3.2.1.tgz}
+    name: '@types/sharedb'
+    version: 3.2.1
     dev: true
 
   registry.npmmirror.com/@typescript-eslint/eslint-plugin/5.48.2_9249eb940a16e0cda3315dd8d2f95ed0:

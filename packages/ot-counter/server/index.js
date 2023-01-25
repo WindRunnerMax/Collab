@@ -12,7 +12,7 @@ function createDoc(callback) {
   doc.fetch(err => {
     if (err) throw err;
     if (doc.type === null) {
-      doc.create({ numClicks: 0 }, callback);
+      doc.create({ num: 0 }, callback);
       return;
     }
     callback();
@@ -31,7 +31,7 @@ function startServer() {
     backend.listen(stream);
   });
 
-  server.listen(8080);
-  console.log("Listening on http://localhost:8080");
+  server.listen(3000);
+  console.log("Listening on http://localhost:3000");
 }
 createDoc(startServer);
