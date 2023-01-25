@@ -13,8 +13,8 @@ export const Counter: FC = () => {
 
   return (
     <>
-      <div>{count}</div>
-      <button onClick={connection.increment}>+1</button>
+      <div>Count: {count}</div>
+      <button onClick={() => connection.increment()}>+1</button>
     </>
   );
 };
