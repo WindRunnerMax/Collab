@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev:ot-counter": "pnpm run dev --filter ot-counter"
+    "dev:ot-counter": "pnpm run dev --filter ot-counter",
+    "dev:ot-quill": "pnpm run dev --filter ot-quill"
   },
   "repository": {
     "type": "git",

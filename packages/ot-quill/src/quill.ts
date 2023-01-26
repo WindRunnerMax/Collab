@@ -5,7 +5,7 @@ import tinyColor from "tinycolor2";
 Quill.register("modules/cursors", QuillCursors);
 
 export default new Quill("#editor", {
-  theme: "bubble",
+  theme: "snow",
   modules: { cursors: true },
 });
 

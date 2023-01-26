@@ -1,28 +1,4 @@
-body {
-  font-family: sans-serif;
-}
-
-input,
-button {
-  font-size: 16px;
-  margin-right: 10px;
-}
-
-.controls {
-  margin: 20px;
-  text-align: center;
-  width: 100%;
-}
-
-.ql-container {
-  padding: 10px;
-}
-
-.ql-editor {
-  border: 1px solid #aaa;
-}
-
-/* Keep the example simple by hiding the toolbar */
-.ql-tooltip {
-  display: none;
+/* stylelint-disable-next-line selector-max-id */
+#user {
+  margin-bottom: 10px;
 }

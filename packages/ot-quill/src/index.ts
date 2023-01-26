@@ -6,10 +6,15 @@ import type Delta from "quill-delta";
 const presenceId = getRandomId();
 const doc = client.doc;
 
-doc.subscribe(err => {
-  if (err) throw err;
-  const cursors = quill.getModule("cursors");
+const userNode = document.getElementById("user") as HTMLInputElement;
+userNode && (userNode.value = "User: " + presenceId);
 
+doc.subscribe(err => {
+  if (err) {
+    console.log("DOC SUBSCRIBE ERROR", err);
+    return;
+  }
+  const cursors = quill.getModule("cursors");
   quill.setContents(doc.data);
 
   quill.on("text-change", (delta, oldDelta, source) => {
@@ -19,12 +24,12 @@ doc.subscribe(err => {
 
   doc.on("op", (op, source) => {
     if (source) return;
-    quill.updateContents(op as any as Delta);
+    quill.updateContents(op as unknown as Delta);
   });
 
   const presence = client.getDocPresence();
   presence.subscribe(error => {
-    if (error) throw error;
+    if (error) console.log("PRESENCE SUBSCRIBE ERROR", err);
   });
   const localPresence = presence.create(presenceId);
 
@@ -37,7 +42,7 @@ doc.subscribe(err => {
     // same window. In real use, you may want to clear the cursor.
     if (!range) return;
     localPresence.submit(range, error => {
-      if (error) throw error;
+      if (error) console.log("LOCAL PRESENCE SUBSCRIBE ERROR", err);
     });
   });
 

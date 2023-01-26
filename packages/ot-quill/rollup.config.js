@@ -18,9 +18,10 @@ const template = `
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OT Quill</title>
-    <link href="quill.bubble.css" rel="stylesheet">
+    <link href="quill.snow.css" rel="stylesheet">
 </head>
 <body>
+    <input id="user" disabled>
     <div id="editor"></div>
     <script src="index.js"></script>
 </body>

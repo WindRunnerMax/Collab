@@ -6,7 +6,7 @@ const WebSocketJSONStream = require("@teamwork/websocket-json-stream");
 const richText = require("rich-text");
 
 ShareDB.types.register(richText.type);
-const backend = new ShareDB({ presence: true });
+const backend = new ShareDB({ presence: true, doNotForwardSendPresenceErrorsToClient: true });
 
 // Create initial document then fire callback
 function start(callback) {
@@ -15,7 +15,7 @@ function start(callback) {
   doc.fetch(err => {
     if (err) throw err;
     if (doc.type === null) {
-      doc.create([{ insert: "OT Quill" }], "quill", callback);
+      doc.create([{ insert: "OT Quill" }], "rich-text", callback);
       return;
     }
     callback();
