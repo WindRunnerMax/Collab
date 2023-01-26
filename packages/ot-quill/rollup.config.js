@@ -20,7 +20,7 @@ const template = `
     <title>OT Quill</title>
 </head>
 <body>
-    <div id="root"></div>
+    <div id="editor"></div>
     <script src="index.js"></script>
 </body>
 </html>`;
