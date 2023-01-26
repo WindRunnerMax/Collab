@@ -1,6 +1,7 @@
 import Quill from "quill";
 import QuillCursors from "quill-cursors";
 import tinyColor from "tinycolor2";
+
 Quill.register("modules/cursors", QuillCursors);
 
 export default new Quill("#editor", {

@@ -1,5 +1,7 @@
+import "./index.css";
 import quill, { getCursorColor, getRandomId } from "./quill";
 import client from "./client";
+import type Delta from "quill-delta";
 
 const presenceId = getRandomId();
 const doc = client.doc;
@@ -17,7 +19,7 @@ doc.subscribe(err => {
 
   doc.on("op", (op, source) => {
     if (source) return;
-    quill.updateContents(op);
+    quill.updateContents(op as any as Delta);
   });
 
   const presence = client.getDocPresence();
@@ -34,12 +36,6 @@ doc.subscribe(err => {
     // Ignore blurring, so that we can see lots of users in the
     // same window. In real use, you may want to clear the cursor.
     if (!range) return;
-    // In this particular instance, we can send extra information
-    // on the presence object. This ability will vary depending on
-    // type.
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    range.name = nameInput.value;
     localPresence.submit(range, error => {
       if (error) throw error;
     });
@@ -47,7 +43,7 @@ doc.subscribe(err => {
 
   presence.on("receive", (id, range) => {
     const color = getCursorColor(id);
-    const name = (range && range.name) || "Anonymous";
+    const name = "User: " + id;
     cursors.createCursor(id, name, color);
     cursors.moveCursor(id, range);
   });

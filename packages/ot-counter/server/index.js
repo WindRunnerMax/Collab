@@ -3,10 +3,11 @@ const express = require("express");
 const ShareDB = require("sharedb");
 const WebSocket = require("ws");
 const WebSocketJSONStream = require("@teamwork/websocket-json-stream");
+
 const backend = new ShareDB();
 
 // Create initial document then fire callback
-function createDoc(callback) {
+function start(callback) {
   const connection = backend.connect();
   const doc = connection.get("ot-example", "counter");
   doc.fetch(err => {
@@ -19,7 +20,7 @@ function createDoc(callback) {
   });
 }
 
-function startServer() {
+function server() {
   const app = express();
   app.use(express.static("build"));
   const server = http.createServer(app);
@@ -34,4 +35,5 @@ function startServer() {
   server.listen(3000);
   console.log("Listening on http://localhost:3000");
 }
-createDoc(startServer);
+
+start(server);
