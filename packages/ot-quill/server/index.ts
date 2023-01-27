@@ -1,9 +1,9 @@
-const http = require("http");
-const express = require("express");
-const ShareDB = require("sharedb");
-const WebSocket = require("ws");
-const WebSocketJSONStream = require("@teamwork/websocket-json-stream");
-const richText = require("rich-text");
+import http from "http";
+import express from "express";
+import ShareDB from "sharedb";
+import WebSocket from "ws";
+import WebSocketJSONStream from "@teamwork/websocket-json-stream";
+import richText from "rich-text";
 
 ShareDB.types.register(richText.type);
 const backend = new ShareDB({ presence: true, doNotForwardSendPresenceErrorsToClient: true });

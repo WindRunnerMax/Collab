@@ -1,13 +1,13 @@
-const http = require("http");
-const express = require("express");
-const ShareDB = require("sharedb");
-const WebSocket = require("ws");
-const WebSocketJSONStream = require("@teamwork/websocket-json-stream");
+import http from "http";
+import express from "express";
+import ShareDB from "sharedb";
+import WebSocket from "ws";
+import WebSocketJSONStream from "@teamwork/websocket-json-stream";
 
 const backend = new ShareDB();
 
 // Create initial document then fire callback
-function start(callback) {
+function start(callback: () => void) {
   const connection = backend.connect();
   const doc = connection.get("ot-example", "counter");
   doc.fetch(err => {
@@ -27,7 +27,7 @@ function server() {
 
   // Connect any incoming WebSocket connection to ShareDB
   const wss = new WebSocket.Server({ server: server });
-  wss.on("connection", function (ws) {
+  wss.on("connection", ws => {
     const stream = new WebSocketJSONStream(ws);
     backend.listen(stream);
   });
