@@ -9,7 +9,7 @@ ShareDB.types.register(richText.type);
 const backend = new ShareDB({ presence: true, doNotForwardSendPresenceErrorsToClient: true });
 
 // Create initial document then fire callback
-function start(callback) {
+function start(callback: () => void) {
   const connection = backend.connect();
   const doc = connection.get("ot-example", "quill");
   doc.fetch(err => {
