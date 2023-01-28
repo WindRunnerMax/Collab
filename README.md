@@ -1,5 +1,8 @@
 # Collab
 
+[初探富文本之OT协同算法](https://github.com/WindrunnerMax/EveryDay/blob/master/Plugin/初探富文本之OT协同算法.md)  
+[初探富文本之OT协同实例](https://github.com/WindrunnerMax/EveryDay/blob/master/Plugin/初探富文本之OT协同实例.md)  
+
 ## Workspace
 
 ```bash
