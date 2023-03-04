@@ -6,7 +6,6 @@
   "scripts": {
     "dev": "concurrently 'npm run fe' 'npm run server'",
     "fe": "mkdir -p build && cp -R public/ ./build/ && rollup -wc",
-    "build": "mkdir -p build && cp -R public/ ./build/ && rollup -c",
     "server": "rollup --config rollup.server.js && node build/server.js"
   },
   "keywords": [],
