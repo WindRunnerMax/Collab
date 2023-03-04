@@ -14,7 +14,7 @@ class Connection {
   }
 
   bind(cb: ClientCallback) {
-    // Create local Doc instance mapped to 'examples' collection document with id 'counter'
+    // Create local Doc instance mapped to 'ot-example' collection document with id 'counter'
     // collectionName, documentID
     const doc = this.connection.get("ot-example", "counter");
     // Get initial value of document and subscribe to changes
