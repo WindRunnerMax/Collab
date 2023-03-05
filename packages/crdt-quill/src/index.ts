@@ -5,7 +5,7 @@ import Delta from "quill-delta";
 import QuillCursors from "quill-cursors";
 import { compareRelativePositions, createRelativePositionFromTypeIndex } from "yjs";
 
-const userId = getRandomId(); // Or awareness.clientID
+const userId = getRandomId(); // Current useId // Or using awareness.clientID
 const doc = client.doc;
 const type = client.type;
 const cursors = quill.getModule("cursors") as QuillCursors;

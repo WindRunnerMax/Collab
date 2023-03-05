@@ -11,7 +11,7 @@ class Connection {
     const doc = new Doc();
     const provider = new WebsocketProvider("ws://localhost:3001", "crdt-quill", doc);
     provider.on("status", (e: { status: string }) => {
-      console.log("WebSocket", e.status);
+      console.log("WebSocket Status", e.status);
     });
     this.doc = doc;
     this.type = doc.getText("quill");
