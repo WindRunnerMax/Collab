@@ -39,18 +39,19 @@ export const updateCursor = (
       const color = user.color || "#aaa";
       const name = user.name || `User: ${clientId}`;
       cursor.createCursor(clientId.toString(), name, color);
+      // RelativePosition to AbsolutePosition
+      const focus = createAbsolutePositionFromRelativePosition(
+        createRelativePositionFromJSON(state.cursor.focus),
+        doc
+      );
       const anchor = createAbsolutePositionFromRelativePosition(
         createRelativePositionFromJSON(state.cursor.anchor),
         doc
       );
-      const head = createAbsolutePositionFromRelativePosition(
-        createRelativePositionFromJSON(state.cursor.head),
-        doc
-      );
-      if (anchor && head && anchor.type === type) {
+      if (focus && anchor && focus.type === type) {
         cursor.moveCursor(clientId.toString(), {
-          index: anchor.index,
-          length: head.index - anchor.index,
+          index: focus.index,
+          length: anchor.index - focus.index,
         });
       }
     } else {

@@ -5,7 +5,7 @@ import Delta from "quill-delta";
 import QuillCursors from "quill-cursors";
 import { compareRelativePositions, createRelativePositionFromTypeIndex } from "yjs";
 
-const userId = getRandomId();
+const userId = getRandomId(); // Or awareness.clientID
 const doc = client.doc;
 const type = client.type;
 const cursors = quill.getModule("cursors") as QuillCursors;
@@ -48,15 +48,16 @@ quill.on("editor-change", (_: string, delta: Delta, state: Delta, origin: Source
       awareness.setLocalStateField("cursor", null);
     }
   } else {
-    const anchor = createRelativePositionFromTypeIndex(type, sel.index);
-    const head = createRelativePositionFromTypeIndex(type, sel.index + sel.length);
+    // AbsolutePosition to RelativePosition
+    const focus = createRelativePositionFromTypeIndex(type, sel.index);
+    const anchor = createRelativePositionFromTypeIndex(type, sel.index + sel.length);
     if (
       !aw ||
       !aw.cursor ||
-      !compareRelativePositions(anchor, aw.cursor.anchor) ||
-      !compareRelativePositions(head, aw.cursor.head)
+      !compareRelativePositions(focus, aw.cursor.focus) ||
+      !compareRelativePositions(anchor, aw.cursor.anchor)
     ) {
-      awareness.setLocalStateField("cursor", { anchor, head });
+      awareness.setLocalStateField("cursor", { focus, anchor });
     }
   }
   // update all remote cursor locations
@@ -65,9 +66,11 @@ quill.on("editor-change", (_: string, delta: Delta, state: Delta, origin: Source
   });
 });
 
+// Initialize all cursor values
 awareness.getStates().forEach((state, clientId) => {
   updateCursor(cursors, state, clientId, doc, type);
 });
+// Listen to remote and local state changes
 awareness.on(
   "change",
   ({ added, removed, updated }: { added: number[]; removed: number[]; updated: number[] }) => {
