@@ -4,11 +4,7 @@ import path from "path";
 import postcss from "rollup-plugin-postcss";
 import esbuild from "rollup-plugin-esbuild";
 import html from "@rollup/plugin-html";
-
-process.env.NODE_ENV === "production";
-const banner = `var process = {
-  env: { NODE_ENV: 'production' }
-};`;
+import replace from "@rollup/plugin-replace";
 
 const template = `
 <!DOCTYPE html>
@@ -30,15 +26,15 @@ const template = `
 export default async () => {
   return {
     input: "src/index.ts",
-    output: {
-      dir: "./build",
-      format: "iife",
-      banner,
-    },
+    output: { dir: "./build", format: "iife" },
     plugins: [
       resolve({ browser: true, preferBuiltins: false }),
       commonjs({
         include: /node_modules/, // `monorepo regexp`
+      }),
+      replace({
+        "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV),
+        "preventAssignment": true,
       }),
       postcss({ minimize: true, extensions: [".css", ".scss"] }),
       esbuild({
