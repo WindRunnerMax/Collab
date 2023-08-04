@@ -29,6 +29,7 @@
     "@vercel/node": "^2.15.8",
     "concurrently": "^7.6.0",
     "esbuild": "^0.17.4",
+    "postcss": "^8.3.3",
     "rollup": "^2.75.7",
     "rollup-plugin-esbuild": "^5.0.0",
     "rollup-plugin-postcss": "^4.0.2",
