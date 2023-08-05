@@ -9,7 +9,7 @@ export default async () => {
       ...config.plugins,
       replace({
         "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV),
-        "ws://localhost:3001": 'ws://" + location.host + "/api/ws',
+        "ws://localhost:3001": 'wss://" + location.host + "/api/ws',
         "preventAssignment": true,
       }),
     ],

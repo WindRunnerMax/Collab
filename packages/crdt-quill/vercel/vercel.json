@@ -7,17 +7,8 @@
     { "src": "build/static/**", "use": "@vercel/static" }
   ],
   "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "build/server.js"
-    },
-    {
-      "src": "/",
-      "dest": "build/static/index.html"
-    },
-    {
-      "src": "/(.+)",
-      "dest": "build/static/$1"
-    }
+    { "src": "/api/(.*)", "dest": "build/server.js" },
+    { "src": "/", "dest": "build/static/index.html" },
+    { "src": "/(.+)", "dest": "build/static/$1" }
   ]
 }
