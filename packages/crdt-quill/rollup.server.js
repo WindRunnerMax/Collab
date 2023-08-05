@@ -5,7 +5,6 @@ export default async () => {
   return {
     input: {
       server: "server/index.ts",
-      core: "server/core.ts",
     },
     output: {
       dir: "./build/",

@@ -3,13 +3,21 @@
   "outputDirectory": "build",
   "buildCommand": "npm run build:vercel",
   "builds": [
-    { "src": "build/core.js", "use": "@vercel/node" },
-    { "src": "build/static/*.*", "use": "@vercel/static" }
+    { "src": "build/server.js", "use": "@vercel/node" },
+    { "src": "build/static/**", "use": "@vercel/static" }
   ],
   "routes": [
     {
-      "src": "/(.*)",
-      "dest": "build/core.js"
+      "src": "/api/(.*)",
+      "dest": "build/server.js"
+    },
+    {
+      "src": "/",
+      "dest": "build/static/index.html"
+    },
+    {
+      "src": "/(.+)",
+      "dest": "build/static/$1"
     }
   ]
 }

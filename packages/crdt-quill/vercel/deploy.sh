@@ -1,14 +1,9 @@
 set -ex
 
-cp  vercel.json ../
+mkdir -p build/static
+cp  ./vercel/vercel.json ./
+cp  ./vercel/server.js build/
+cp -R public/ ./build/static 
 
-cd ../
-pwd
-
-mkdir -p build
-cp -R public/ ./build/ 
-
-npx rollup -c
-npx rollup --config rollup.server.js
-
+npx rollup --config ./vercel/rollup.config.js
 
