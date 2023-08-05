@@ -1,12 +1,10 @@
 {
   "installCommand": "pnpm install",
   "outputDirectory": "build",
-  "buildCommand": "chmod 755 deploy.sh && ./deploy.sh",
+  "buildCommand": "npm run build:vercel",
   "builds": [
     { "src": "build/core.js", "use": "@vercel/node" },
-    { "src": "build/*.html", "use": "@vercel/static" },
-    { "src": "build/index.js", "use": "@vercel/static" },
-    { "src": "build/*.ico", "use": "@vercel/static" }
+    { "src": "build/static/*.*", "use": "@vercel/static" }
   ],
   "routes": [
     {

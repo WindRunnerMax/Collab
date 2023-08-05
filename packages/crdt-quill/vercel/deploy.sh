@@ -1,5 +1,10 @@
 set -ex
 
+cp  vercel.json ../
+
+cd ../
+pwd
+
 mkdir -p build
 cp -R public/ ./build/ 
 

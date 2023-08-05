@@ -14,7 +14,6 @@ const template = `
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CRDT Quill</title>
-    <link href="quill.snow.css" rel="stylesheet">
 </head>
 <body>
     <input id="user" disabled>
@@ -26,7 +25,7 @@ const template = `
 export default async () => {
   return {
     input: "src/index.ts",
-    output: { dir: "./build", format: "iife" },
+    output: { dir: "./build/static", format: "iife" },
     plugins: [
       resolve({ browser: true, preferBuiltins: false }),
       commonjs({
