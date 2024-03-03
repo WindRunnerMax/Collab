@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev:ot-counter": "pnpm run dev --filter ot-counter",
-    "dev:ot-quill": "pnpm run dev --filter ot-quill",
-    "dev:crdt-counter": "pnpm run dev --filter crdt-counter",
-    "dev:crdt-quill": "pnpm run dev --filter crdt-quill"
+    "dev:ot-counter": "pnpm --filter ot-counter run dev",
+    "dev:ot-quill": "pnpm --filter ot-quill run dev ",
+    "dev:crdt-counter": "pnpm --filter crdt-counter run dev",
+    "dev:crdt-quill": "pnpm --filter crdt-quill run dev"
   },
   "repository": {
     "type": "git",
