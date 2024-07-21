@@ -9,21 +9,10 @@
 ## Start
 
 ```bash
-pnpm i
+npm i -g pnpm@8.11.0
+pnpm i --frozen-lockfile
 npm run dev:ot-counter
 npm run dev:ot-quill
 npm run dev:crdt-counter
 npm run dev:crdt-quill
-```
-
-## Workspace
-
-```bash
-# workspace
-# --filter ot-counter
-# --filter ot-quill
-# --filter crdt-counter
-# --filter crdt-quill
-pnpm add rollup --filter workspace
-pnpm remove rollup --filter workspace
 ```

@@ -7,7 +7,8 @@
     "dev:ot-counter": "pnpm --filter ot-counter run dev",
     "dev:ot-quill": "pnpm --filter ot-quill run dev ",
     "dev:crdt-counter": "pnpm --filter crdt-counter run dev",
-    "dev:crdt-quill": "pnpm --filter crdt-quill run dev"
+    "dev:crdt-quill": "pnpm --filter crdt-quill run dev",
+    "lint:ts": "pnpm --filter '*' run lint:ts"
   },
   "repository": {
     "type": "git",
